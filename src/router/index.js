@@ -6,9 +6,9 @@ import Posts from '../views/Posts.vue'
 import Blog from '../views/Blog.vue'
 const routes = [
     {
-        path: '/',
+        path: '/home',
         name: 'Home',
-        // component: Home
+        component: Home
     },
     {
         path: '/register',
