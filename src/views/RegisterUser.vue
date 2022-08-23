@@ -59,9 +59,17 @@ export default {
             phone: '',
         });
 
-        const formSubmit = () => {
+        const formSubmit = async () => {
             console.log(data);
-
+            // post data to server
+            // await fetch('https://localhost:8000/api/register', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(data),
+            // });
+ 
         }
         
         return {
