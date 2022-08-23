@@ -29,6 +29,11 @@ const routes = [
         path: '/blog',
         name: 'Blog',
         component: Blog
+    },
+    {
+        path: '/home',
+        name: 'Home',
+        component: Home
     }
 ]
 const router = createRouter({

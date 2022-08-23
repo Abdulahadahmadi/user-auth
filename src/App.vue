@@ -10,13 +10,13 @@
         <div
             class="container flex flex-wrap justify-between items-center mx-auto"
         >
-            <a href="#" class="flex items-center">
+            <router-link to="/home" class="flex items-center">
             <img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAB7CAMAAABjGQ9NAAAAY1BMVEX///8AAACbm5vc3Nz09PQtLS25ubm0tLTKysrx8fHo6OghISHQ0NCqqqr5+fnHx8c0NDRvb29bW1tNTU2Hh4ccHBykpKR/f39HR0cJCQl0dHQYGBhBQUG/v79SUlJnZ2eQkJDSybsPAAADaUlEQVRoge2b57qjIBCGNWo8Gkui6aac+7/KVZihSdhoJOw+D98vKc4rMlQxCLy8vL6rvC5Xy6us87+Bq3uzCe1o09wrE7poLYGp2uI1emWVPGj1Cr23jg7DvbnU+7SIllaR7i+GkheQZnSID1RB2TR1XhE32xi84WMVpAm148LdXz3UknDCuI/iG6MbLiTy2hs1Nifvw1ZdoypSr2oPVxsawIIizbhWIsshMrXOTgdMqUSu7HvaoELnVYQdWWdHnu3Znu3Znu3Znu3Znv3fs+Mw4WqvqTSdz1ZtImkb97HXZEskmS1o5AZn3++xZXVXTs+3oZqaBTDDVyfaR4hEy3PYYXj5gaTqMUo7DOwcAkfRbEPjbvFHbLaU+RmnEHZ8o4GHaBYyXDE8lx3mPKeGHZwgJFiF/QS+2JrNbszsNYQKxWqv7GM2tarbjCK2MwgIpqG6z2xtPYV9KnudEgwJ7GOWc9GbzuLrGVTBfb8sZgqb7k/kOxraCmzNevkXbmKlRLfkC+4p7DUUgBapi4zsGm7C1sgeJmZZZrARWBjZ2KLY9gVWN88xh73mJTKwYTf2AS9d43z22NgEwPdGdWCTjV0J7KBpOht77AD2TElbZB2/2Mkuw14HGgGNblvqBpdl2Nv2POiWiVZSuI0YukNAHFSXYaMkdiTedqXXSaVmsMMOYFrx7C+rG7/+Chs7376sETie5JQ22cI4ipfSBNQmGyu8DIInvTpXo/TF2MqGNLSyfhw90KvT+Nk+ZpeZOHQzQV92YX2cvGFtsV/jQ3aBU2b54ayyM/TuJ3v5X2PjmN1AdSufIuyyca6C7/5zdvo2O5LZlSZ1Ipu678U8X6OS0E8lcQa7oB6UZG+wdyL7qCROYadVHMfZsQMHYjkN7KPIVlf0U9jbYYju0FIqsNsd1zVWzaPUB5u9JiJLfN2a6CJ16kKCWt3z2XeeU9ZBYp94wmhiNZcN3cR6nCKzcxafqOi5bOyh8m6UJLO5t6kfPmeyE+7XqZqmsvHghOaL9nR216Si9TpR2J3CDsq+N9/oWuFb+2viQYnxiRz1KIUGot+r+9f39jzbsz3bsz3bsz3bsz37FdvRuT2X5xVdntN0eT7V5blcp+eRXZ7Ddnn+3Om5e6f/Gzj9z8Lp/yVO/6sZ5Ox/Ii8vr4X1B5ikL1M/jYVKAAAAAElFTkSuQmCC"
                 class="ml-10 h-6 sm:h-9"
                 alt="dev blog logo"
             />
-            </a>
+            </router-link>
             <div class="flex md:order-2">
             <router-link
             to="/login"
@@ -57,7 +57,7 @@
             >
                 <li>
                 <router-link
-                    to="/"
+                    to="/home"
                     class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                     aria-current="page"
                     >Home</router-link
