@@ -14,13 +14,14 @@
         <p class="text-center text-3xl">Welcome.</p>
         <form
           class="flex flex-col pt-3 md:pt-8"
-          onsubmit="event.preventDefault();"
+          @submit.prevent="loginBtn"
         >
           <div class="flex flex-col pt-4">
             <label for="email" class="text-lg">Email</label>
             <input
               type="email"
               id="email"
+              v-model="data.email"
               placeholder="your@email.com"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -32,6 +33,7 @@
               type="password"
               id="password"
               placeholder="Password"
+              v-model="data.password"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
@@ -65,7 +67,38 @@
 </template>
 
 <script>
-export default {};
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
+export default {
+  name: 'Login',
+  setup() {
+    const data = reactive({
+      email: '',
+      password: '',
+    });
+
+    const router = useRouter();
+
+    const loginBtn = () => {
+      console.log(data);
+      // request data to server
+            // await fetch('https://localhost:8000/api/login', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     Credential: 'included',
+            //     body: JSON.stringify(data),
+            // });
+            // await router.push('/');
+    };
+    return {
+      data,
+      loginBtn,
+    };
+  }
+};
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
