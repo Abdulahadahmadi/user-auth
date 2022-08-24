@@ -14,7 +14,7 @@
         <p class="text-center text-3xl">Welcome.</p>
         <form
           class="flex flex-col pt-3 md:pt-8"
-          @submit.prevent="loginBtn"
+          @submit.prevent="login"
         >
           <div class="flex flex-col pt-4">
             <label for="email" class="text-lg">Email</label>
@@ -42,6 +42,7 @@
           <input
             type="submit"
             value="Log In"
+            @click="loginBtn"
             class="bg-black rounded-md text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8"
           />
         </form>
