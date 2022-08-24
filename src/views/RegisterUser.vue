@@ -14,22 +14,22 @@
                 <form class="flex flex-col pt-3 md:pt-8" @submit.prevent="formSubmit">
                     <div class="flex flex-col pt-4">
                         <label for="name" class="text-lg">Name</label>
-                        <input type="text" id="name" v-model="data.name" placeholder="your name here" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="text" id="name" v-model="name" placeholder="your name here" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
 
                     <div class="flex flex-col pt-4">
                         <label for="email" class="text-lg">Email</label>
-                        <input type="email" id="email" v-model="data.email" placeholder="your@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="email" id="email" v-model="email" placeholder="your@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
     
                     <div class="flex flex-col pt-4">
                         <label for="password" class="text-lg">Password</label>
-                        <input type="password" id="password" v-model="data.password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="password" id="password" v-model="password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
 
                     <div class="flex flex-col pt-4">
                         <label for="phone" class="text-lg">Phone #</label>
-                        <input type="tel" id="phone" v-model="data.phone"  placeholder="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="tel" id="phone" v-model="phone"  placeholder="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
     
                     <input type="submit" value="Register" class="bg-black rounded-md text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
@@ -51,16 +51,43 @@
 import { reactive } from 'vue';
 export default {
     name: 'Register',
-    setup() {
-        const data = reactive({
+        data() {
+            return {
             name: '',
             email: '',
             password: '',
             phone: '',
-        });
+            users: []
+            }
+            
+        },
+        props: {
+            users: {
+                type: Array,
+                required: true
+            }
+        },
+        methods: {
+            formSubmit() {
+                let data = {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    phone: this.phone
+                }
+                if(localStorage.users){
+                    let isUsers = localStorage.users;
+                    this.users = JSON.parse(isUsers);
+                }
+                console.log(data);
+                localStorage.setItem('users', JSON.stringify(this.users));
 
-        const formSubmit = async () => {
-            console.log(data);
+                this.users.push(data);
+                
+                this.name = '';
+                this.email = '';
+                this.password = '';
+                this.phone = '';
             // post data to server
             // await fetch('https://localhost:8000/api/register', {
             //     method: 'POST',
@@ -69,15 +96,20 @@ export default {
             //     },
             //     body: JSON.stringify(data),
             // });
- 
+            }
+        },
+        mounted() {
+            this.name = localStorage.getItem('name')
+            this.email = localStorage.getItem('email')
+            this.password = localStorage.getItem('password')
+            this.phone = localStorage.getItem('phone')
         }
-        
-        return {
-            data,
-            formSubmit
-        }
-    },
 }
+// memory heap
+    const dataType = 1;
+    const useStage = false;
+
+// call stack
 </script>
 
 

@@ -21,7 +21,7 @@
             <input
               type="email"
               id="email"
-              v-model="data.email"
+              v-model="email"
               placeholder="your@email.com"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
             />
@@ -33,10 +33,11 @@
               type="password"
               id="password"
               placeholder="Password"
-              v-model="data.password"
+              v-model="password"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
+
 
           <input
             type="submit"
@@ -68,19 +69,17 @@
 
 <script>
 import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
 
 export default {
   name: 'Login',
-  setup() {
-    const data = reactive({
+  data() {
+    return {
       email: '',
       password: '',
-    });
-
-    const router = useRouter();
-
-    const loginBtn = () => {
+    }
+  },
+  method: {
+    loginBtn() {
       console.log(data);
       // request data to server
             // await fetch('https://localhost:8000/api/login', {
@@ -92,12 +91,7 @@ export default {
             //     body: JSON.stringify(data),
             // });
             // await router.push('/');
-    };
-    
-    return {
-      data,
-      loginBtn,
-    };
+    }
   }
 };
 </script>
@@ -111,5 +105,9 @@ body {
   background-color: #fff;
   font-family: "Karla", sans-serif;
   height: 100vh;
+}
+.done{
+  color: green;
+  text-decoration: line-through;
 }
 </style>
