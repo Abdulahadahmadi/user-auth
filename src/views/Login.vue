@@ -1,7 +1,7 @@
 <template lang="">
   <div class="w-full flex flex-wrap">
     <!-- Login Section -->
-    <div class="w-full md:w-1/2 flex flex-col">
+    <div class="w-full md:w-1/2 flex flex-col ">
       <div
         class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24"
       >
@@ -93,6 +93,7 @@ export default {
             // });
             // await router.push('/');
     };
+    
     return {
       data,
       loginBtn,
