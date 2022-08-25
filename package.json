@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^9.9.3",
     "flowbite": "^1.5.2",
     "vue": "^3.2.37",
     "vue-router": "^4.1.4",
+    "vuelidate": "^0.7.7",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

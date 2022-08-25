@@ -11,28 +11,39 @@
             <div class="flex flex-col ju stify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
                 <p class="text-center text-3xl">Join Us.</p>
                 <!-- form -->
-                <form class="flex flex-col pt-3 md:pt-8" @submit.prevent="formSubmit">
+                <form class="flex flex-col pt-3 md:pt-8" @submit.prevent="signUpUser">
                     <div class="flex flex-col pt-4">
                         <label for="name" class="text-lg">Name</label>
-                        <input type="text" id="name" v-model="name" placeholder="your name here" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="text" id="name" v-model.trim="name" placeholder="your name here" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
 
                     <div class="flex flex-col pt-4">
                         <label for="email" class="text-lg">Email</label>
-                        <input type="email" id="email" v-model="email" placeholder="your@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="email" id="email" v-model.trim="email" placeholder="your@email.com" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
     
                     <div class="flex flex-col pt-4">
                         <label for="password" class="text-lg">Password</label>
-                        <input type="password" id="password" v-model="password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="password" id="password" v-model.trim="password" placeholder="Password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
 
                     <div class="flex flex-col pt-4">
                         <label for="phone" class="text-lg">Phone #</label>
-                        <input type="tel" id="phone" v-model="phone"  placeholder="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                        <input type="tel" id="phone" v-model.trim="phone"  placeholder="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
     
                     <input type="submit" value="Register" class="bg-black rounded-md text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
+                    <div class="my-2 bg">
+                        <button
+                        @click="loginWithGoogle"
+                        aria-label="Login with Google"
+                        type="button"
+                        class="flex items-center justify-center w-full px-4 bg-black text-white space-x-4 border rounded-md focus:ring-2 py-2 focus:ring-offset-1 hover:opacity-70 dark:border-gray-400 focus:ring-violet-400"
+                        >
+                        <img src="../assets/images/google.svg" width="30" alt="google icon" />
+                        <p>Sign Up with Google</p>
+                        </button>
+                    </div>
                 </form>
                 <div class="text-center pt-12 pb-12">
                     <p>Already have an account? <router-link  to="/login" class="underline font-semibold hover:text-blue-600">Login</router-link> </p>
@@ -48,7 +59,7 @@
     <router-view />
 </template>
 <script>
-import { reactive } from 'vue';
+
 export default {
     name: 'Register',
         data() {
@@ -68,26 +79,26 @@ export default {
             }
         },
         methods: {
-            formSubmit() {
+            signUpUser() {
                 let data = {
                     name: this.name,
                     email: this.email,
                     password: this.password,
                     phone: this.phone
                 }
-                if(localStorage.users){
-                    let isUsers = localStorage.users;
-                    this.users = JSON.parse(isUsers);
-                }
-                console.log(data);
-                localStorage.setItem('users', JSON.stringify(this.users));
+                // if(localStorage.users){
+                //     let isUsers = localStorage.users;
+                //     this.users = JSON.parse(isUsers);
+                // }
+                // console.log(data);
+                // localStorage.setItem('users', JSON.stringify(this.users));
 
-                this.users.push(data);
+                // this.users.push(data);
                 
-                this.name = '';
-                this.email = '';
-                this.password = '';
-                this.phone = '';
+                // this.name = '';
+                // this.email = '';
+                // this.password = '';
+                // this.phone = '';
             // post data to server
             // await fetch('https://localhost:8000/api/register', {
             //     method: 'POST',
@@ -96,6 +107,8 @@ export default {
             //     },
             //     body: JSON.stringify(data),
             // });
+
+            
             }
         },
         mounted() {
