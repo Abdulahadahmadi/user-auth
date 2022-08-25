@@ -105,11 +105,7 @@ export default {
             this.phone = localStorage.getItem('phone')
         }
 }
-// memory heap
-    const dataType = 1;
-    const useStage = false;
 
-// call stack
 </script>
 
 
