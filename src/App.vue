@@ -6,9 +6,8 @@
 
 
 <template>
-    <div>
+    <div class="">
         <the-navigation />
-        
     </div>
     <router-view/>
     <Footer />
