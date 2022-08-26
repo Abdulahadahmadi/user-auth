@@ -3,7 +3,10 @@ import './style.css'
 import App from './App.vue'
 import 'flowbite';
 import  router from './router';
-import Vuex from 'vuex';
+// import Vuex from 'vuex';
 
+// const store = createStore({
+    
+// })
 
 createApp(App).use(router).mount('#app')
