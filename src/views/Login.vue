@@ -90,8 +90,9 @@ export default {
     };
   },
   method: {
-    loginBtn() {
+    login() {
       console.log(data);
+      console.log('clicked');
       // request data to server
       // await fetch('https://localhost:8000/api/login', {
       //     method: 'POST',
