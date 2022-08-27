@@ -40,7 +40,7 @@
           <input
             type="submit"
             value="Log In"
-            @click="loginBtn"
+            @click="login"
             class="bg-black rounded-md text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8"
           />
           <div class="my-2 bg">
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-
+import { useAuth0 } from '@auth0/auth0-vue';
 export default {
   name: "Login",
   data() {
@@ -89,10 +89,18 @@ export default {
       password: "",
     };
   },
+  setup() {
+    const { loginWithRedirect } = useAuth0();
+    return {
+      loginWithGoogle: () => {
+        loginWithRedirect();
+      }
+    }
+  },
   method: {
-    login() {
+    loginWithGoogle() {
       console.log(data);
-      console.log('clicked');
+      this.$auth0.loginWithRedirect();
       // request data to server
       // await fetch('https://localhost:8000/api/login', {
       //     method: 'POST',
@@ -103,9 +111,6 @@ export default {
       //     body: JSON.stringify(data),
       // });
       // await router.push('/');
-    },
-    loginWithGoogle() {
-      console.log("login with google");
     },
   },
 };

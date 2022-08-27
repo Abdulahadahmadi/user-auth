@@ -4,6 +4,7 @@ import Register from '../views/RegisterUser.vue'
 import Login from '../views/Login.vue'
 import Posts from '../views/Posts.vue'
 import Blog from '../views/Blog.vue'
+import Logout from '../views/Logout.vue'
 const routes = [
     {
         path: '/home',
@@ -34,6 +35,11 @@ const routes = [
         path: '/home',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/logout',
+        name: 'Logout',
+        component: Logout
     }
 ]
 const router = createRouter({
